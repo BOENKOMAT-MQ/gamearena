@@ -1,3 +1,37 @@
+html{font-size:18px}
+body{line-height:1.6}
+.header__link{font-size:1.1rem}
+.place-card__title{font-size:1.4rem}
+.place-card__specs{font-size:1.05rem}
+.place-card__type{font-size:1rem}
+.place-card__price{font-size:1.3rem}
+.tag{font-size:.9rem;padding:4px 10px}
+.place-card__img{height:200px}
+.features__text,.event span,.hall p{font-size:1.05rem}
+
+html{font-size:18px}
+body{line-height:1.6}
+.header__link{font-size:1.1rem}
+.place-card__title{font-size:1.4rem}
+.place-card__specs{font-size:1.05rem}
+.place-card__type{font-size:1rem}
+.place-card__price{font-size:1.3rem}
+.tag{font-size:.9rem;padding:4px 10px}
+.place-card__img{height:200px}
+.features__text,.event span,.hall p{font-size:1.05rem}
+
+
+html{font-size:18px}
+body{line-height:1.6}
+.header__link{font-size:1.1rem}
+.place-card__title{font-size:1.4rem}
+.place-card__specs{font-size:1.05rem}
+.place-card__type{font-size:1rem}
+.place-card__price{font-size:1.3rem}
+.tag{font-size:.9rem;padding:4px 10px}
+.place-card__img{height:200px}
+.features__text,.event span,.hall p{font-size:1.05rem}
+
 :root {
     --bg: #0e1020;
     --surface: #171a31;
