@@ -8,6 +8,17 @@ const P = [
     { id: 6, name: 'Стримерская', type: 'stream', hall: 'Pro', price: 500, gpu: 'RTX 4080 Super', cpu: 'Ryzen 9 7900X', mon: '2×27" 165 Гц', tags: ['Свободно сегодня'], e: '🎙️', d: 'Звукоизоляция, свет и микрофон для стримов и записи.' },
     { id: 7, name: 'PlayStation 5', type: 'console', hall: 'Lounge', price: 250, gpu: 'AMD RDNA 2', cpu: 'Zen 2, 8 ядер', mon: 'ТВ 55" 4K', tags: ['Для новичков'], e: '🎮', d: 'Диван, большой ТВ и два геймпада.' },
     { id: 8, name: 'Xbox Series X', type: 'console', hall: 'Lounge', price: 250, gpu: 'AMD RDNA 2', cpu: 'Zen 2, 8 ядер', mon: 'ТВ 55" 4K', tags: ['Свободно сегодня'], e: '🎮', d: 'Game Pass и два геймпада в комплекте.' }];
+    const IMG={
+1:'standard-1.png',
+2:'standard-pro.jpeg',
+3:'VIP-Royal.jpg',
+4:'VIP-Duo.jpg',
+5:'Bootcamp.jpeg',
+6:'STREAM.jpg',
+7:'PlayStation5.jpg',
+8:'Xbox-SeriesX.jpg'
+};
+P.forEach(p=>p.img='img/'+IMG[p.id]);
 const $ = (s, r = document) => r.querySelector(s), page = document.body.dataset.page;
 const cur = P.find(p => p.id == new URLSearchParams(location.search).get('id')) || P[0];
 const today = () => new Date(Date.now() - new Date().getTimezoneOffset() * 6e4).toISOString().slice(0, 10);
@@ -48,7 +59,7 @@ if (page == 'catalog') {
 
 /* Страница места: данные и расчёт стоимости */
 if (page == 'booking') {
-    document.title = cur.name + ' — бронирование'; $('#p-img').textContent = cur.e; $('#p-name').textContent = cur.name;
+    document.title = cur.name + ' — бронирование'; $('#p-img').innerHTML = `<img class="place-card__photo" src="${cur.img}" alt="${cur.name}">`; $('#p-name').textContent = cur.name;
     $('#p-meta').textContent = `${TYPES[cur.type]} · зал ${cur.hall} · ${cur.price} ₽/ч`; $('#p-desc').textContent = cur.d;
     $('#p-specs').innerHTML = [['Видеокарта', cur.gpu], ['Процессор', cur.cpu], ['Монитор', cur.mon]].map(s => `<li><b>${s[0]}:</b> ${s[1]}</li>`).join('');
     $('#b-pl').innerHTML = [1, 2, 3, 4, 5].map(n => `<option>${n}</option>`).join(''); $('#b-h').innerHTML = Array.from({ length: 12 }, (_, i) => `<option value="${i + 1}">${i + 1} ч</option>`).join('');
