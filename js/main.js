@@ -26,16 +26,6 @@ document.body.insertAdjacentHTML('beforeend',`<footer class="footer"><div class=
 0:00
 
 
-$/.test(v))m=MSG.email;
-if(!m&&i.type=='date'&&v<today())m=MSG.date;
-let fb=i.parentElement.querySelector('.invalid-feedback');if(!fb){fb=document.createElement('div');fb.className='invalid-feedback';i.after(fb)}
-fb.textContent=m;i.classList.toggle('is-invalid',!!m);if(m)ok=false});return ok}
-document.querySelectorAll('form[data-validate]').forEach(f=>{const box=document.createElement('div');box.className='form-msg';f.append(box);
-f.addEventListener('submit',e=>{e.preventDefault();const ok=validate(f);
-box.innerHTML=ok?`<div class="alert alert-success mb-0">${page=='booking'?`Бронь принята: ${cur.name}, ${$('#b-date').value} в ${$('#b-time').value}, ${$('#total').textContent}. Подтверждение придёт на почту.`:'Сообщение отправлено. Мы ответим в течение дня.'}</div>`:'<div class="alert alert-danger mb-0">Проверьте поля, отмеченные красным.</div>';
-if(ok){f.reset();f.querySelectorAll('.is-invalid').forEach(i=>i.classList.remove('is-invalid'));if(page=='booking')$('#total').textContent=rub(cur.price)}})});–02
-
-
 :00</div></div></footer><button class="to-top" id="top" aria-label="Наверх">↑</button>
 <div class="modal fade" id="info" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h2 class="modal-title h5" id="m-title"></h2><button class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button></div><div class="modal-body" id="m-body"></div><div class="modal-footer" id="m-foot"></div></div></div></div>`);
 $('#top').onclick=()=>scrollTo({top:0,behavior:'smooth'});
@@ -72,3 +62,13 @@ const MSG={tel:'Формат: +7 900 123-45-67',email:'Введите корре
 function validate(f){let ok=true;f.querySelectorAll('[required]').forEach(i=>{const v=i.value.trim(),d=v.replace(/\D/g,'').length;let m=!v?'Заполните поле':'';
 if(!m&&i.type=='tel'&&!(/^\+?[\d\s()-]+$/.test(v)&&d>=10&&d<=12))m=MSG.tel;
 if(!m&&i.type=='email'&&!/^[^@\s]+@[^@\s]+\.[^@\s]+
+
+
+$/.test(v))m=MSG.email;
+if(!m&&i.type=='date'&&v<today())m=MSG.date;
+let fb=i.parentElement.querySelector('.invalid-feedback');if(!fb){fb=document.createElement('div');fb.className='invalid-feedback';i.after(fb)}
+fb.textContent=m;i.classList.toggle('is-invalid',!!m);if(m)ok=false});return ok}
+document.querySelectorAll('form[data-validate]').forEach(f=>{const box=document.createElement('div');box.className='form-msg';f.append(box);
+f.addEventListener('submit',e=>{e.preventDefault();const ok=validate(f);
+box.innerHTML=ok?`<div class="alert alert-success mb-0">${page=='booking'?`Бронь принята: ${cur.name}, ${$('#b-date').value} в ${$('#b-time').value}, ${$('#total').textContent}. Подтверждение придёт на почту.`:'Сообщение отправлено. Мы ответим в течение дня.'}</div>`:'<div class="alert alert-danger mb-0">Проверьте поля, отмеченные красным.</div>';
+if(ok){f.reset();f.querySelectorAll('.is-invalid').forEach(i=>i.classList.remove('is-invalid'));if(page=='booking')$('#total').textContent=rub(cur.price)}})});–02
