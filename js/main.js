@@ -88,5 +88,3 @@ document.querySelectorAll('form[data-validate]').forEach(f => {
         if (ok) { f.reset(); f.querySelectorAll('.is-invalid').forEach(i => i.classList.remove('is-invalid')); if (page == 'booking') $('#total').textContent = rub(cur.price) }
     })
 });
-/* Клик по местам на схеме */
-if (page == 'home') { $('#seatmap').addEventListener('click', e => { const s = e.target.closest('.seatmap__seat'); if (s) s.classList.toggle('seatmap__seat--free') }) }
