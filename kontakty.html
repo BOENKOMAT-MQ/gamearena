@@ -1,9 +1,114 @@
-<!DOCTYPE html><html lang="ru" data-bs-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@500;700;800&display=swap" rel="stylesheet"><link rel="icon" href="data:,"><link href="css/style.css?v=3" rel="stylesheet"><title>Контакты — GameArena</title></head><body data-page="contacts"><main class="container section"><h1 class="section__title">Контакты</h1><div class="row g-4">
-<div class="col-lg-5"><div class="panel"><h2 class="h5">Клуб GameArena</h2><p><b>Режим работы:</b><br>Пн–Чт 10:00–02:00<br>Пт–Вс круглосуточно</p><p><b>E-mail:</b><br><a href="mailto:hello@gamearena.ru">hello@gamearena.ru</a></p><p><b>Адрес:</b><br>г. Москва, ул. Игровая, 15</p><p><b>Телефон:</b><br><a href="tel:+74950000000">+7 495 000-00-00</a></p><p class="mb-0"><a href="#" class="me-3">VK</a><a href="#" class="me-3">Telegram</a><a href="#">YouTube</a></p></div></div>
-<div class="col-lg-7"><form class="panel" id="feedback" data-validate novalidate><h2 class="h5">Напишите нам</h2><div class="mb-3"><label class="form-label" for="c-name">Имя</label><input class="form-control" id="c-name" required></div><div class="mb-3"><label class="form-label" for="c-mail">E-mail</label><input class="form-control" id="c-mail" type="email" required></div><div class="mb-3"><label class="form-label" for="c-msg">Сообщение</label><textarea class="form-control" id="c-msg" rows="3" required></textarea></div><button class="btn btn-primary">Отправить</button></form></div></div>
-<h2 class="section__title mt-5" id="faq">Частые вопросы</h2><div class="accordion" id="acc">
-<div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#q1">Как отменить или перенести бронь, если у меня изменились планы и я не успеваю прийти вовремя?</button></h3><div id="q1" class="accordion-collapse collapse show" data-bs-parent="#acc"><div class="accordion-body">Позвоните нам не позже чем за 2 часа до начала — оплата не списывается.</div></div></div>
-<div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#q2">Можно ли прийти в клуб без предварительной брони и занять свободное место прямо на месте?</button></h3><div id="q2" class="accordion-collapse collapse" data-bs-parent="#acc"><div class="accordion-body">Да, если есть свободные места. В вечерние часы лучше бронировать заранее.</div></div></div>
-<div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#q3">Есть ли в клубе возрастные ограничения для гостей и можно ли прийти вместе с детьми?</button></h3><div id="q3" class="accordion-collapse collapse" data-bs-parent="#acc"><div class="accordion-body">Гости до 14 лет — только с родителями. После 22:00 вход с 18 лет.</div></div></div>
-<div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#q4">Можно ли играть со своего игрового аккаунта или нужно пользоваться аккаунтами клуба?</button></h3><div id="q4" class="accordion-collapse collapse" data-bs-parent="#acc"><div class="accordion-body">Да, а ещё в клубе есть библиотека игр, доступная всем гостям.</div></div></div></div></main>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script><script src="js/main.js?v=3"></script></body></html>
+<!DOCTYPE html>
+<html lang="ru" data-bs-theme="dark">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@500;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:,">
+    <link href="css/style.css?v=3" rel="stylesheet">
+    <title>Контакты — GameArena</title>
+</head>
+
+<body data-page="contacts">
+    <main class="container section">
+        <h1 class="section__title">Контакты</h1>
+        <div class="row g-4">
+            <div class="col-lg-5">
+                <div class="panel">
+                    <h2 class="h5">Клуб GameArena</h2>
+                    <p><b>Режим работы:</b>
+                        Пн–Чт 10:00–02:00
+                        Пт–Вс круглосуточно</p>
+                    <p><b>E-mail:</b>
+                        <a href="mailto:hello@gamearena.ru">hello@gamearena.ru</a>
+                    </p>
+                    <p><b>Адрес:</b>
+                        г. Москва, ул. Игровая, 15</p>
+                    <p><b>Телефон:</b>
+                        <a href="tel:+74950000000">+7 495 000-00-00</a>
+                    </p>
+                    <p class="mb-0"><a href="#" class="me-3">VK</a><a href="#" class="me-3">Telegram</a><a
+                            href="#">YouTube</a></p>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <form class="panel" id="feedback" data-validate novalidate>
+                    <h2 class="h5">Напишите нам</h2>
+                    <div class="mb-3"><label class="form-label" for="c-name">Имя</label><input class="form-control"
+                            id="c-name" required></div>
+                    <div class="mb-3"><label class="form-label" for="c-mail">E-mail</label><input class="form-control"
+                            id="c-mail" type="email" required></div>
+                    <div class="mb-3"><label class="form-label" for="c-msg">Сообщение</label><textarea
+                            class="form-control" id="c-msg" rows="3" required></textarea></div><button
+                        class="btn btn-primary">Отправить</button>
+                </form>
+            </div>
+        </div>
+        <h2 class="section__title mt-5" id="faq">Частые вопросы</h2>
+        <div class="accordion" id="acc">
+            <div class="accordion-item">
+                <h3 class="accordion-header"><button class="accordion-button" data-bs-toggle="collapse"
+                        data-bs-target="#q1">Как отменить или перенести бронь, если у меня изменились планы и я не
+                        успеваю прийти вовремя?</button></h3>
+                <div id="q1" class="accordion-collapse collapse show" data-bs-parent="#acc">
+                    <div class="accordion-body">Позвоните или напишите нам не позже чем за 2 часа до начала — отмена и
+                        перенос бесплатные. Место держим 15 минут после начала брони.</div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h3 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse"
+                        data-bs-target="#q2">Можно ли прийти в клуб без предварительной брони и занять свободное место
+                        прямо на месте?</button></h3>
+                <div id="q2" class="accordion-collapse collapse" data-bs-parent="#acc">
+                    <div class="accordion-body">Да, если есть свободные места. Вечером и в выходные лучше бронировать
+                        заранее, а VIP и bootcamp — минимум за день.</div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h3 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse"
+                        data-bs-target="#q3">Есть ли в клубе возрастные ограничения для гостей и можно ли прийти вместе
+                        с детьми?</button></h3>
+                <div id="q3" class="accordion-collapse collapse" data-bs-parent="#acc">
+                    <div class="accordion-body">До 14 лет — только с родителями, с 14 до 18 — до 22:00 самостоятельно.
+                        После 22:00 вход с 18 лет.</div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h3 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse"
+                        data-bs-target="#q4">Можно ли играть со своего игрового аккаунта или нужно пользоваться
+                        аккаунтами клуба?</button></h3>
+                <div id="q4" class="accordion-collapse collapse" data-bs-parent="#acc">
+                    <div class="accordion-body">Можно играть со своего аккаунта, только выходите из него после игры. Для
+                        гостей есть библиотека игр клуба.</div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h3 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse"
+                        data-bs-target="#q5">Какие способы оплаты доступны и как рассчитывается итоговая стоимость
+                        брони?</button></h3>
+                <div id="q5" class="accordion-collapse collapse" data-bs-parent="#acc">
+                    <div class="accordion-body">Оплата картой, наличными или через СБП на месте. Стоимость — цена места
+                        за час, умноженная на
+
+
+                        о часов, сумма видна в форме.</div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h3 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse"
+                        data-bs-target="#q6">Можно ли отметить день рождения, провести корпоратив или собственный турнир
+                        в клубе?</button></h3>
+                <div id="q6" class="accordion-collapse collapse" data-bs-parent="#acc">
+                    <div class="accordion-body">Да, для компаний от 5 человек подойдут bootcamp и VIP-комнаты. Напишите
+                        нам через форму, и мы рассчитаем вариант под ваш бюджет.</div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js?v=3"></script>
+</body>
+
+</html> числ
