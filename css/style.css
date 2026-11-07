@@ -1,37 +1,3 @@
-html{font-size:18px}
-body{line-height:1.6}
-.header__link{font-size:1.1rem}
-.place-card__title{font-size:1.4rem}
-.place-card__specs{font-size:1.05rem}
-.place-card__type{font-size:1rem}
-.place-card__price{font-size:1.3rem}
-.tag{font-size:.9rem;padding:4px 10px}
-.place-card__img{height:200px}
-.features__text,.event span,.hall p{font-size:1.05rem}
-
-html{font-size:18px}
-body{line-height:1.6}
-.header__link{font-size:1.1rem}
-.place-card__title{font-size:1.4rem}
-.place-card__specs{font-size:1.05rem}
-.place-card__type{font-size:1rem}
-.place-card__price{font-size:1.3rem}
-.tag{font-size:.9rem;padding:4px 10px}
-.place-card__img{height:200px}
-.features__text,.event span,.hall p{font-size:1.05rem}
-
-
-html{font-size:18px}
-body{line-height:1.6}
-.header__link{font-size:1.1rem}
-.place-card__title{font-size:1.4rem}
-.place-card__specs{font-size:1.05rem}
-.place-card__type{font-size:1rem}
-.place-card__price{font-size:1.3rem}
-.tag{font-size:.9rem;padding:4px 10px}
-.place-card__img{height:200px}
-.features__text,.event span,.hall p{font-size:1.05rem}
-
 :root {
     --bg: #0e1020;
     --surface: #171a31;
@@ -406,6 +372,72 @@ a {
 .to-top--show {
     display: block
 }
-.place-card__photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.place-card__img,.place-img{overflow:hidden}
-.place-card__tags{z-index:1}
+
+html {
+    font-size: 18px
+}
+
+body {
+    line-height: 1.6
+}
+
+.header__link {
+    font-size: 1.1rem
+}
+
+.place-card__title {
+    font-size: 1.4rem
+}
+
+.place-card__specs {
+    font-size: 1.05rem
+}
+
+.place-card__type {
+    font-size: 1rem
+}
+
+.place-card__price {
+    font-size: 1.3rem
+}
+
+.tag {
+    font-size: .9rem;
+    padding: 4px 10px
+}
+
+.place-card__img {
+    height: 200px
+}
+
+.features__text,
+.event span,
+.hall p {
+    font-size: 1.05rem
+}
+
+.place-card__photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover
+}
+
+.place-card__img,
+.place-img {
+    overflow: hidden
+}
+
+.place-card__tags {
+    z-index: 1
+}
+
+.seatmap__seat {
+    cursor: pointer;
+    transition: background .2s, box-shadow .2s
+}
+
+.seatmap__seat:hover {
+    outline: 2px solid var(--accent-2)
+}

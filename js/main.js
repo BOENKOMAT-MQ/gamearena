@@ -16,17 +16,10 @@ const today = () => new Date(Date.now() - new Date().getTimezoneOffset() * 6e4).
 const rub = n => n.toLocaleString('ru') + ' ₽';
 
 /* Единое меню, подвал, крошки, «Наверх», модальное окно */
-const NAV = [['index.html', 'Главная', 'home'], ['catalog.html', 'Каталог', 'catalog'], ['contacts.html', 'Контакты', 'contacts']];
+const NAV = [['index.html', 'Главная', 'home'], ['catalog.html', 'Каталог', 'catalog'], ['contacts.html', 'Контакты', 'contacts'], ['index.html#about', 'О нас', 'about']];
 const CR = { catalog: [['Главная', 'index.html'], ['Каталог']], booking: [['Главная', 'index.html'], ['Каталог', 'catalog.html'], [cur.name]], contacts: [['Главная', 'index.html'], ['Контакты']] }[page];
-document.body.insertAdjacentHTML('afterbegin', `<header class="header navbar navbar-expand-md sticky-top"><div class="container"><a class="header__logo navbar-brand" href="index.html">Game<span>Arena</span></a><button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav" aria-label="Меню"><span class="navbar-toggler-icon"></span></button><nav class="collapse navbar-collapse" id="nav"><ul class="navbar-nav ms-auto align-items-md-center gap-md-3">${NAV.map(n => `<li><a class="header__link nav-link${n[2] == page || (page == 'booking' && n[2] == 'catalog') ? ' header__link--active' : ''}" href="${n[0]}">${n[1]}</a></li>`).join('')}<li><a class="btn btn-primary btn-sm" href="catalog.html">Забронировать</a></li></ul></nav></div></header>` + (CR ? `<nav class="crumbs container" aria-label="Хлебные крошки"><ol class="breadcrumb">${CR.map(c => c[1] ? `<li class="breadcrumb-item"><a href="${c[1]}">${c[0]}</a></li>` : `<li class="breadcrumb-item active">${c[0]}</li>`).join('')}</ol></nav>` : ''));
-document.body.insertAdjacentHTML('beforeend', `<footer class="footer"><div class="container row g-4 mx-auto"><div class="col-md-4"><b class="header__logo">GameArena</b><p>Киберспортивный клуб с онлайн-бронированием.</p></div><div class="col-md-4"><a href="catalog.html">Каталог мест</a><a href="contacts.html#faq">Вопросы и ответы</a><a href="contacts.html">Контакты</a></div><div class="col-md-4">Ул. Игровая, 15
-+7 495 
-00-00
-Ежеднев
-0:00
-
-
-:00</div></div></footer><button class="to-top" id="top" aria-label="Наверх">↑</button>
+document.body.insertAdjacentHTML('afterbegin', `<header class="header navbar navbar-expand-md sticky-top"><div class="container"><a class="header__logo navbar-brand" href="index.html">Game<span>Arena</span></a><button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav" aria-label="Меню"><span class="navbar-toggler-icon"></span></button><nav class="collapse navbar-collapse" id="nav"><ul class="navbar-nav ms-auto align-items-md-center gap-md-3">${NAV.map(n => `<li><a class="header__link nav-link${n[2] == page || (page == 'booking' && n[2] == 'catalog') ? ' header__link--active' : ''}" href="${n[0]}">${n[1]}</a></li>`).join('')}<li><a class="btn btn-primary btn-sm" href="booking.html">Забронировать</a></li></ul></nav></div></header>` + (CR ? `<nav class="crumbs container" aria-label="Хлебные крошки"><ol class="breadcrumb">${CR.map(c => c[1] ? `<li class="breadcrumb-item"><a href="${c[1]}">${c[0]}</a></li>` : `<li class="breadcrumb-item active">${c[0]}</li>`).join('')}</ol></nav>` : ''));
+document.body.insertAdjacentHTML('beforeend', `<footer class="footer"><div class="container row g-4 mx-auto"><div class="col-md-4"><b class="header__logo">GameArena</b><p>Все права защищены © 2026</p></div><div class="col-md-4"><a href="catalog.html">Каталог мест</a><a href="contacts.html#faq">Вопросы и ответы</a><a href="contacts.html">Контакты</a></div><div class="col-md-4 text-md-end"><b>Режим работы</b><br>Пн–Чт 10:00–02:00<br>Пт–Вс круглосуточно<br><b>Адрес</b><br>г. Москва, ул. Игровая, 15<br><a href="tel:+74950000000">+7 495 000-00-00</a><a href="mailto:hello@gamearena.ru">hello@gamearena.ru</a></div></div></footer><button class="to-top" id="top" aria-label="Наверх">↑</button>
 <div class="modal fade" id="info" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h2 class="modal-title h5" id="m-title"></h2><button class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button></div><div class="modal-body" id="m-body"></div><div class="modal-footer" id="m-foot"></div></div></div></div>`);
 $('#top').onclick = () => scrollTo({ top: 0, behavior: 'smooth' });
 addEventListener('scroll', () => $('#top').classList.toggle('to-top--show', scrollY > 400));
@@ -35,9 +28,7 @@ addEventListener('scroll', () => $('#top').classList.toggle('to-top--show', scro
 const card = p => `<div class="col-sm-6 col-xl-4"><article class="place-card"><div class="place-card__img"><img class="place-card__photo" src="${p.img}" alt="${p.name}"><div class="place-card__tags">${p.tags.map(t => `<span class="tag${t.startsWith('Свободно') ? ' tag--free' : ''}">${t}</span>`).join('')}</div></div><div class="place-card__body"><span class="place-card__type">${TYPES[p.type]} · зал ${p.hall}</span><h3 class="place-card__title">${p.name}</h3><ul class="place-card__specs"><li>Видеокарта: ${p.gpu}</li><li>Процессор: ${p.cpu}</li><li>Монитор: ${p.mon}</li></ul><div class="place-card__foot"><b class="place-card__price">${p.price} ₽/ч</b><button class="btn btn-outline-info btn-sm" data-info="${p.id}">Кратко</button><a class="btn btn-primary btn-sm" href="booking.html?id=${p.id}">Забронировать</a></div></div></article></div>`;
 document.addEventListener('click', e => {
     const b = e.target.closest('[data-info]'); if (!b) return; const p = P.find(x => x.id == b.dataset.info);
-    $('#m-title').textContent = p.name; $('#m-body').innerHTML = `<p class="text-secondary">${TYPES[p.type]}, зал ${p.hall}</p><p>${p.d}</p><p class="mb-0">${p.gpu} · ${p.cpu} · ${p.mon}
-<b>${p.
-            e} ₽ в час</b></p>`;
+    $('#m-title').textContent = p.name; $('#m-body').innerHTML = `<p class="text-secondary">${TYPES[p.type]}, зал ${p.hall}</p><p>${p.d}</p><p class="mb-0">${p.gpu} · ${p.cpu} · ${p.mon}<br><b>${p.price} ₽ в час</b></p>`;
     $('#m-foot').innerHTML = `<a class="btn btn-primary" href="booking.html?id=${p.id}">Перейти к бронированию</a>`; new bootstrap.Modal('#info').show()
 });
 
@@ -63,7 +54,7 @@ if (page == 'booking') {
     $('#p-meta').textContent = `${TYPES[cur.type]} · зал ${cur.hall} · ${cur.price} ₽/ч`; $('#p-desc').textContent = cur.d;
     $('#p-specs').innerHTML = [['Видеокарта', cur.gpu], ['Процессор', cur.cpu], ['Монитор', cur.mon]].map(s => `<li><b>${s[0]}:</b> ${s[1]}</li>`).join('');
     $('#b-pl').innerHTML = [1, 2, 3, 4, 5].map(n => `<option>${n}</option>`).join(''); $('#b-h').innerHTML = Array.from({ length: 12 }, (_, i) => `<option value="${i + 1}">${i + 1} ч</option>`).join('');
-    const calc = () => $('#total').textContent = rub(cur.price * $('#b-h').value); $('#b-h').onchange = calc; calc()
+    const calc = () => $('#total').textContent = rub(cur.price * $('#b-h').value); $('#b-h').onchange = calc; calc(); $('#b-place').innerHTML = P.map(p => `<option value="${p.id}"${p.id == cur.id ? ' selected' : ''}>${p.name} — ${p.price} ₽/ч</option>`).join(''); $('#b-place').onchange = e => { location.href = 'booking.html?id=' + e.target.value }
 }
 
 /* Проверка форм */
@@ -88,3 +79,6 @@ document.querySelectorAll('form[data-validate]').forEach(f => {
         if (ok) { f.reset(); f.querySelectorAll('.is-invalid').forEach(i => i.classList.remove('is-invalid')); if (page == 'booking') $('#total').textContent = rub(cur.price) }
     })
 });
+
+/* Клик по местам на схеме */
+if (page == 'home') { $('#seatmap').addEventListener('click', e => { const s = e.target.closest('.seatmap__seat'); if (s) s.classList.toggle('seatmap__seat--free') }) }
