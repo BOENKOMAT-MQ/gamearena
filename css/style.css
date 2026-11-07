@@ -441,3 +441,13 @@ body {
 .seatmap__seat:hover {
     outline: 2px solid var(--accent-2)
 }
+
+.footer .row>div:nth-child(2) {
+    text-align: center
+}
+
+@media(max-width:767px) {
+    .footer .row>div {
+        text-align: center !important
+    }
+}
